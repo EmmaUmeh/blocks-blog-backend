@@ -22,10 +22,12 @@ require("dotenv").config()
 //   }
 // };
 
-const ethers  = require("ethers");
+const {ethers, JsonRpcProvider}  = require("ethers");
 
-const provider = new ethers.Contract(`${process.env.ETHEREUM_RPC_URL}`);
-const contractAddress = "YOUR_BLOG_CONTRACT_ADDRESS";
+
+const provider = new JsonRpcProvider(process.env.ETHEREUM_RPC_URL); // Replace with your provider details if needed
+ // Assuming you have the ABI
+const contractAddress = "0xdf57089febbacf7ba0bc227dafbffa9fc08a93fdc68e1e42411a14efcf23656e";
 
 const abi = [
     "function createPost(string _title, string _content)",
